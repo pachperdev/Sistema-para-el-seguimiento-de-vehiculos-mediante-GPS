@@ -10,11 +10,11 @@ function App() {
   useEffect(() => {
     
     if (sw) {
-      axios.get(`http://localhost:5000/api/v1/datos/${id}`, {
+      axios.get(`http://localhost:7800/api/v1/datos/${id}`, {
 
     })
       .then(function (response) {
-        console.log("HOLA CARITAS",response.data.data);
+        console.log("MUESTRA LA DATA",response.data.data);
         setData(response.data.data)
       })
       .catch(function (error) {
@@ -32,7 +32,17 @@ function App() {
   return (
     <div className="App">
       <h1> gps taxi </h1>
-      <input type="text" id="latitud" name="latitud" value={data.latitud} readonly/>
+      <span> Latitud: </span>
+      <input type="text" id="latitud" name="latitud" value={data.latitud} readOnly/><br />
+
+      <span> longitud: </span>
+      <input type="text" id="longitud" name="longitud" value={data.longitud} readOnly/><br />
+
+      <span> fecha </span>
+      <input type="text" id="fecha" name="fecha" value={data.fecha} readOnly/><br />
+
+      <span> hora: </span>
+      <input type="text" id="hora" name="hora" value={data.hora} readOnly/><br />
       
     </div>
   );
